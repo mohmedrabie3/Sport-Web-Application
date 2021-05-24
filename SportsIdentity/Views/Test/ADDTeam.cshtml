@@ -1,0 +1,35 @@
+﻿@model  SportsIdentity.Models.FootBallTeam
+@{
+    ViewBag.Title = "ADDTeam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ADDTeam</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        @Html.LabelFor(n => n.Name)
+        @Html.TextBoxFor(n => n.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name,"", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.CoachName)
+        @Html.TextBoxFor(n => n.CoachName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CoachName,"" ,new{ @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.Country)
+        @Html.TextBoxFor(n => n.Country, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.FoundationDate)
+        @Html.TextBoxFor(n => n.FoundationDate, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Logo image</label>
+        <input type="file" name="photo" />
+    </div>
+    <input class="btn btn-info" type="submit" value="submit" />
+</form>
+

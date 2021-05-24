@@ -1,0 +1,31 @@
+﻿@model List<SportsIdentity.Models.FootBallTeam>
+@{
+    ViewBag.Title = "Teams";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Teams</h2>
+@*@Html.DropDownListFor(n=>n.ID , (SelectList)ViewBag.fft)*@
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">LoGo</th>
+            <th scope="col"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (SportsIdentity.Models.FootBallTeam item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td><img style="height:80px;width:100px;" src="~/Assets/images/@item.Logo" /></td>
+                <td>@Html.ActionLink("showPlayers", "showPlayers", new { id = item.ID }, new { @class = "btn btn-info" })</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

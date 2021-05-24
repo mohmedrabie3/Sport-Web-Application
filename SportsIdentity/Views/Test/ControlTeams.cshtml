@@ -1,0 +1,40 @@
+﻿@model List<SportsIdentity.Models.FootBallTeam>
+
+@{
+    ViewBag.Title = "ControlTeams";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ControlTeams</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">County</th>
+            <th scope="col">FoundationDate</th>
+            <th scope="col">CoachName</th>
+            <th scope="col">Logo</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (SportsIdentity.Models.FootBallTeam item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ID</th>
+                <td>@item.Name</td>
+                <td>@item.FoundationDate</td>
+                <td>@item.Country</td>
+                <td>@item.CoachName</td>
+                <td><img style="height:80px;width:100px;" src="~/Assets/images/@item.Logo" /></td>
+                <td>@Html.ActionLink("Edite", "Edite", new { id = item.ID }, new { @class = "btn btn-info" })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

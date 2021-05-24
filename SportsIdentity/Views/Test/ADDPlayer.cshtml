@@ -1,0 +1,36 @@
+﻿@model SportsIdentity.Models.Player
+
+@{
+    ViewBag.Title = "ADDPlayer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ADDPlayer</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        @Html.LabelFor(n => n.ID)
+        @Html.TextBoxFor(n => n.ID, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.Name)
+        @Html.TextBoxFor(n => n.Name, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.national)
+        @Html.TextBoxFor(n => n.national, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.DateOfBirth)
+        @Html.TextBoxFor(n => n.DateOfBirth, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(n => n.IDTeam, (SelectList)ViewBag.FT)
+    </div>
+    <div class="form-group">
+        <input type="file" name="photo" class="form-group" />
+    </div>
+    <input class="btn btn-info" type="submit" value="submit" />
+</form>
